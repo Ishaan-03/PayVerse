@@ -25,7 +25,7 @@ export const SendMoney = () => {
 
         try {
             const response = await axios.post(
-                "http://localhost:3000/api/v1/user/transaction",
+                "https://payverse.onrender.com/api/v1/user/transaction",
                 { to: id, amount },
                 { headers: { Authorization: "Bearer " + localStorage.getItem("token") } }
             );
