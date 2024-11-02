@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import signinRouter from './routes/signin.js';
-import signupRouter from './routes/signup.js'; 
+import signupRouter from './routes/SignUp.js'; 
 import updateRouter from './routes/UpdateDetails.js';
 import searchRouter from './routes/getUser.js';
 import transactionRouter from './routes/transaction.js';
