@@ -8,7 +8,7 @@
   "start": "npm install && node index.js",
   "dev": "nodemon index.js",
   "build": "npm install && echo 'No build step required'",
-  "postinstall": "npm install"
+ 
 },
 
   "author": "",
