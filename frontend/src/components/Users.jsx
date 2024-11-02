@@ -11,7 +11,7 @@ export const Users = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/v1/user/bulk?filter=${filter}`);
+        const response = await axios.get(`https://payverse.onrender.com/api/v1/user/bulk?filter=${filter}`);
         setUsers(response.data.users || []);
       } catch (err) {
         setError(err.message);
