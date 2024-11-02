@@ -1,11 +1,7 @@
-import { useState } from "react";
-import { BottomWarning } from "../components/BottomWarning";
-import { Button } from "../components/Button";
-import { Heading } from "../components/Heading";
-import { InputBox } from "../components/InputBox";
-import { SubHeading } from "../components/SubHeading";
-import axios from "axios";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { DollarSign, ArrowRight } from "lucide-react";
 
 export const Signup = () => {
     const [firstName, setFirstName] = useState("");
@@ -38,19 +34,84 @@ export const Signup = () => {
     };
 
     return (
-        <div className="bg-slate-300 h-screen flex justify-center">
-            <div className="flex flex-col justify-center">
-                <div className="rounded-lg bg-white w-80 text-center p-2 h-max px-4">
-                    <Heading label={"Sign up"} />
-                    <SubHeading label={"Enter your information to create an account"} />
-                    <InputBox onChange={e => setFirstName(e.target.value)} placeholder="Enter Your First Name" label={"First Name"} />
-                    <InputBox onChange={e => setLastName(e.target.value)} placeholder="Enter Your Last Name" label={"Last Name"} />
-                    <InputBox onChange={e => setUserName(e.target.value)} placeholder="Enter Your E-Mail" label={"Email"} />
-                    <InputBox onChange={e => setPassword(e.target.value)} placeholder="Enter Your Password" label={"Password"} />
-                    <div className="pt-4">
-                        <Button onClick={handleSignup} label={"Sign up"} />
+        <div className="min-h-screen bg-gradient-to-br from-purple-500 to-indigo-600 flex flex-col items-center justify-center p-4">
+            <div className="w-full max-w-4xl flex flex-col md:flex-row bg-white rounded-lg shadow-xl overflow-hidden">
+                <div className="md:w-1/2 bg-indigo-600 p-8 flex flex-col justify-between">
+                    <div>
+                        <div className="flex items-center mb-6">
+                            <DollarSign className="h-10 w-10 text-white" />
+                            <h1 className="text-3xl font-bold text-white ml-2">PayVerse</h1>
+                        </div>
+                        <p className="text-indigo-100 text-lg mb-6">Your gateway to seamless digital transactions in the metaverse.</p>
                     </div>
-                    <BottomWarning label={"Already have an account?"} buttonText={"Sign in"} to={"/signin"} />
+                    <div className="bg-indigo-700 rounded-lg p-6 mt-6">
+                        <blockquote className="text-white italic">
+                            "PayVerse revolutionized how children can play and know about transactions with fake money "
+                        </blockquote>
+                        <p className="text-indigo-200 mt-2">- Ishaan Saxena - CEO of PayVerse</p>
+                    </div>
+                </div>
+                <div className="md:w-1/2 p-8">
+                    <div className="mb-6">
+                        <h2 className="text-2xl font-bold mb-2">Create your PayVerse account</h2>
+                        <p className="text-gray-600">Enter your details to get started with PayVerse</p>
+                    </div>
+                    <form className="space-y-4">
+                        <div>
+                            <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                            <input
+                                id="firstName"
+                                type="text"
+                                placeholder="John"
+                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                                onChange={(e) => setFirstName(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                            <input
+                                id="lastName"
+                                type="text"
+                                placeholder="Doe"
+                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                                onChange={(e) => setLastName(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="userName" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input
+                                id="userName"
+                                type="email"
+                                placeholder="john@example.com"
+                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                                onChange={(e) => setUserName(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                            <input
+                                id="password"
+                                type="password"
+                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </div>
+                    </form>
+                    <div className="mt-6">
+                        <button
+                            className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 flex items-center justify-center"
+                            onClick={handleSignup}
+                        >
+                            Sign Up
+                            <ArrowRight className="ml-2 h-4 w-4" />
+                        </button>
+                        <p className="text-sm text-gray-500 mt-4">
+                            Already have an account?{" "}
+                            <a className="text-indigo-600 hover:underline cursor-pointer" onClick={() => navigate("/signin")}>
+                                Sign in
+                            </a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,6 +1,7 @@
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 
 export const SendMoney = () => {
     const [searchParams] = useSearchParams();
@@ -11,6 +12,7 @@ export const SendMoney = () => {
     const [successMessage, setSuccessMessage] = useState('');
     const [loading, setLoading] = useState(false);
 
+    const navigate = useNavigate();
     const handleSendMoney = async () => {
         if (amount <= 0) {
             setError('Amount must be greater than zero.');
@@ -28,6 +30,7 @@ export const SendMoney = () => {
                 { headers: { Authorization: "Bearer " + localStorage.getItem("token") } }
             );
             setSuccessMessage('Transfer successful!');
+            navigate('/dashboard')
         } catch (err) {
             console.error('Transaction error:', err);
             setError('Transaction failed. Please try again.');
