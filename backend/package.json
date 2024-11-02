@@ -5,11 +5,12 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "build": "echo 'No build step required'",
-    "postinstall": "npm install"
-  },
+  "start": "npm install && node index.js",
+  "dev": "nodemon index.js",
+  "build": "npm install && echo 'No build step required'",
+  "postinstall": "npm install"
+},
+
   "author": "",
   "license": "ISC",
   "dependencies": {
