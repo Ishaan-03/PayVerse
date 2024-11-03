@@ -39,6 +39,6 @@ jobs:
         with:
           project: "ishaan-03-payverse-61"
           entrypoint: "backend/index.js"
-          root: "backend"
+          root: ""
           
           
