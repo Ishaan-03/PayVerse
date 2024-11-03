@@ -12,7 +12,7 @@ export const Signup = () => {
 
     const handleSignup = async () => {
         try {
-            const response = await axios.post("https://payverse.onrender.com/api/v1/user/signup", {
+            const response = await axios.post("https://payverse-production.up.railway.app/api/v1/user/signup", {
                 userName,
                 firstName,
                 lastName,
