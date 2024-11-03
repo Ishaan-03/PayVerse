@@ -18,7 +18,7 @@ export default function Dashboard() {
           return
         }
 
-        const response = await axios.get("https://payverse.onrender.com/api/v1/user/showbalance", {
+        const response = await axios.get("https://payverse-production.up.railway.app/api/v1/user/showbalance", {
           headers: {
             Authorization: `Bearer ${token}`
           }
