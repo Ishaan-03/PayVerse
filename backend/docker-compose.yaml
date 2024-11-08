@@ -1,0 +1,23 @@
+services:
+  MongoDb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+      
+
+  backend:
+    image: ishaan03/backend-payverse
+    container_name: backend_app
+    ports:
+      - "3000:3000"
+    environment:
+      MONGO_URI: "mongodb://mongodb:27017"
+      JWT_SECRET: "jwt_secret"
+      PORT: 3000
+
+volumes:
+  mongodb_data:
+
